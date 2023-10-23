@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  font-family: Arial, sans-serif;  
+}
+footer {
+  font-weight: bold; 
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  color: blue;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;  
+}
+
+</style>
+</head>
+
+<body>
+<h2>Calculador estandar  para freecodecamp</h2>
+<br>
+<h1>Código Python</h1>
+
+
+<pre>
+  from browser import document
+    
+    import numpy as np
+
+    def calculate(list):
+      if len(list) < 9:
+        raise ValueError("List must contain nine numbers.")
+
+      # Convert list to numpy array and reshape to 3x3  
+      array = np.array(list).reshape(3, 3)
+
+      # Calculate statistics
+      mean = [array.mean(axis=0).tolist(), array.mean(axis=1).tolist(), array.mean()]
+      variance = [array.var(axis=0).tolist(), array.var(axis=1).tolist(), array.var()]
+      std_dev = [array.std(axis=0).tolist(), array.std(axis=1).tolist(), array.std()]
+      maxi = [array.max(axis=0).tolist(), array.max(axis=1).tolist(), array.max()]
+      mini = [array.min(axis=0).tolist(), array.min(axis=1).tolist(), array.min()]
+      summation = [array.sum(axis=0).tolist(), array.sum(axis=1).tolist(), array.sum()]
+
+      # Return results in a dictionary
+      return {
+              'mean': mean,
+              'variance': variance,
+              'standard deviation': std_dev,
+              'max': maxi,
+              'min': mini,
+              'sum': summation
+             }
+              
+    def on_calculate():
+      # código para obtener números, llamar calculate() y mostrar resultado
+      
+    document["calc-form"].bind("submit", on_calculate)
+  
+</pre>
+<footer>
+  <p>© 2023 Mi Sitio Web Hecho Mauricio Maroto Rojas</p>
+</footer>
+</body>
+</html>
